@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qu04.html</title>
+        <style>
+            h2 {
+                border-bottom: 1px solid gray;
+                
+            }
+            td {
+                padding: 1px;
+            }
+        </style>
+        <script>
+            document.write("<h2>document.write()로 표 만들기</h2>");
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>n</td>
+                <script>
+                for(var i = 0; i<=9; i++) {
+                    document.write("<td>");
+                    document.write(i);
+                    document.write("</td>");
+                }
+                </script>
+            </tr>
+            <tr>
+                <td>n²</td>
+                <script>
+                for(var j =0; j<=9; j++) {
+                    document.write("<td>");
+                    document.write(j*j);
+                    document.write("</td>");
+                }
+                </script>
+            </tr>
+        </table>
+    </body>
+</html>
