@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qu08.html</title>
+        <script>
+            document.write("<h2>숫자의 첫째자리와 마지막자리가 같은지 비교</h2>");
+            document.write("<hr>");
+
+            var num = prompt("숫자를 입력하세요", "");
+            
+            function bool(num) {
+                var lastNum = num % 10;
+
+                while (1) {
+                    num = Math.floor(num / 10);
+
+                    if(num<10){
+                        break;
+                    }
+                }
+
+                if(lastNum == num){
+                document.write("=> 처음과 끝이 같음");
+                
+                }
+                else {
+                document.write("=> 처음과 끝이 다름");
+                
+                }
+            }
+
+            document.write(num);
+            bool(num);
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

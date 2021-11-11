@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qu07.html</title>
+        <script>
+            // 함수 선언방법 1 
+            function big1(n1, n2) {
+                // 문자열로 받기 때문에 parseInt로 숫자형으로 바꿔준다.
+                if(parseInt(n1) > parseInt(n2)) {
+                    return n1;
+                }
+                else {
+                    return n2;
+                }
+            }
+
+            // 함수 선언방법 2
+            var big2 = function(num1, num2) {
+                // 똑같이 pareInt로 받고 삼항연산자로 리턴
+                var result = (parseInt(num1) > parseInt(num2)) ? num1 : num2;
+                return result;
+            }
+        </script>
+        <script>
+
+            document.write("<h2>큰수 나타내기</h2>");
+            document.write("<hr>");
+
+            var b1 = big1("625", "555");
+            document.write("큰수=", b1);
+            document.write("<br>");
+
+            var b2 = big2("625", "555");
+            document.write("큰수=", b2);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
