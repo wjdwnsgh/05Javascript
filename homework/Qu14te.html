@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qu14.html</title>
+        <style>
+            /*
+            float : left; : div와 같은 블럭엘리먼트를 가로형으로 배치한다.
+            height: 80px; line-height: 80px; => 블럭엘리먼트에서 수직방향으로 가운데 정렬이 가능하다.
+            */
+            div {
+                width: 150px; height: 80px;
+                float: left; line-height: 80px; font-size: 1.5em; font-weight: bold;
+                padding-left: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>17개의 CSS3 색이름과 색</h2>
+        <hr>
+        <!-- <div style="background-color: maroon;">maroon</div>
+        <div style="background-color: red;">red</div> -->
+
+        <script>
+            var colorNames = ["maroon", "red", "orange", "yellow", "olive", "purple", "fuchsia", "white", "lime", "green", "navy", "blue", "aqua", "teal", "black", "silver", "gray", "lightskyblue"];
+            var str = '';
+
+            for(var i =0; i<colorNames.length; i++) {
+                str += '<div style="background-color: '+colorNames[i]+'">'+colorNames[i]+'</div>'
+            }
+            document.write(str);
+
+        </script>
+    </body>
+</html>

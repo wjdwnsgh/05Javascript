@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>계산기 과제</title>
+        <style>
+            table {
+                border-radius: 10px; border: 1px solid #c7c7c7; background-color: #E4E3E2;
+            }
+            .btn1 {
+                background-color: #373737; color: white; width: 100px; 
+                height: 50px; border: 1px solid #373737; border-radius: 10px; font-size: 1.5em;
+            }
+            .btn2 {
+                background-color: #FA960A; color: white; width: 100px; 
+                height: 50px; border: 1px solid #FA960A; border-radius: 10px; font-size: 1.5em;
+            }
+            .btn3 {
+                background-color: #7B7B7B; color: white; width: 204px; 
+                height: 50px; border: 1px solid #7B7B7B; border-radius: 10px; font-size: 1.5em;
+            }
+            #dcd {
+                background-color:#70c738; color:#373737; font-size: 40px; font-weight: bold; border-radius: 10px;
+                text-align: right; padding: 10px;
+            }
+            input {
+                width: 388px;
+            }
+        </style>
+
+        <script>
+            function bu(num) {
+                
+                dcd.value += num;
+            }
+
+            function gul() {
+                var result = document.getElementById("dcd");
+                var res = (eval(result.value));
+                dcd.value = res;
+            }
+
+            function re() {
+                dcd.value = "";
+            }
+
+            function sub() {
+                var back = document.getElementById("dcd");
+                dcd.value = dcd.value.substring(0, dcd.value.length-1);
+            }
+        </script>
+    </head>
+    <body>
+        <!-- 테이블 : 레이아웃
+        버튼 : button태그
+        div(디스플레이) -->
+
+        <h2>계산기 만들기 과제</h2>
+
+        <table align="center">
+            <tr>
+                <td colspan="4">
+                    <div style="width: 410px;">
+                        <input type="text" id="dcd">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="button" class="btn3" onclick="sub();">BackSpace</button>
+                </td>
+                <td colspan="2">
+                    <button type="button" class="btn3" onclick="re();">C</button>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn1" onclick="bu(1);" value="1">1</button></td>
+                <td><button type="button" class="btn1" onclick="bu(2);" value="2">2</button></td>
+                <td><button type="button" class="btn1" onclick="bu(3);" value="3">3</button></td>
+                <td><button type="button" class="btn2" onclick="bu('/');" value="/">/</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn1" onclick="bu(4);" value="4">4</button></td>
+                <td><button type="button" class="btn1" onclick="bu(5);" value="5">5</button></td>
+                <td><button type="button" class="btn1" onclick="bu(6);" value="6">6</button></td>
+                <td><button type="button" class="btn2" onclick="bu('*');" value="*">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn1" onclick="bu(7);" value="7">7</button></td>
+                <td><button type="button" class="btn1" onclick="bu(8);" value="8">8</button></td>
+                <td><button type="button" class="btn1" onclick="bu(9);" value="9">9</button></td>
+                <td><button type="button" class="btn2" onclick="bu('+');" value="+">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" class="btn1" onclick="gul();" value="=">=</button></td>
+                <td><button type="button" class="btn1" onclick="bu(0);" value="0">0</button></td>
+                <td><button type="button" class="btn1" onclick="bu('.');" value=".">.</button></td>
+                <td><button type="button" class="btn2" onclick="bu('-');" value="-">-</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
