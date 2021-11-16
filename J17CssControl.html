@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>J17CssControl.html</title>
+        <script>
+            // 전역변수 : 기사부분의 DOM객체와 폰트사이즈 저장
+            var pTag, pSize;
+
+            window.onload = function() {
+                // 기사가 있는 p태그의 DOM을 얻어옴
+                pTag = document.getElementById("article");
+                // 현재 설정된 폰트 사이즈를 얻어옴(별도의 사이즈 지정이 없다면 16px)
+                pSize = parseInt(pTag.style.fontSize);
+            }
+
+            function fnArticle(flag) {
+                /*
+                JS에서 CSS속성 컨트롤
+                    : DOM.style.CSS속성 => "속성값";
+                    단, 이때 CSS속성에 하이픈이 들어간다면 제거 후 첫글자를
+                    대문자로 기술한다. 또한 크기를 설정할때는 반드시 px와 같은
+                    단위를 기술해야 한다.
+                */
+                switch(flag) {
+                    case "+": // 폰트크기
+                        pSize += 10;
+                        pTag.style.fontSize = pSize + "px";
+                        break;
+                    case "-":
+                        pSize -= 10;
+                        pTag.style.fontSize = pSize + "px";
+                        break;
+                    case "R": // 폰트의 색깔 설정
+                        pTag.style.color = "red";
+                        break;
+                    case "G":
+                        pTag.style.color = "green";
+                        break;
+                    case "B":
+                        pTag.style.color = "Blue";
+                        break;
+                    case "Bo": // 폰트 굵기
+                        pTag.style.fontWeight = "bold";
+                        break;
+                    case "No":
+                        pTag.style.fontWeight = "normal";
+                        break;
+                    case "Ce": // 정렬
+                        pTag.style.textAlign = "center";
+                        break;
+                    case "Le":
+                        pTag.style.textAlign = "left";
+                        break;
+                    case "B_red":
+                        pTag.style.backgroundColor = "red";
+                        break;
+                    case "B_silver":
+                        pTag.style.backgroundColor = "silver";
+                        break;
+                    case "B_white":
+                        pTag.style.backgroundColor = "white";
+                        break;
+                    default:
+                        pTag.style.color = "black";
+                }
+            }
+
+            /*
+            연습문제 글꼴바꾸기 번튼을 계속 누를때마다 아래 5가지
+            폰트가 토글되어 적용될수 있도록 함수를정의하시오
+            글꼴 : Verdana, 굴림체, 휴먼옛체, 궁서, Impact
+            */
+           var fontToggle = 0; //폰트 토글을 위한 전역변수
+            function setFont() {
+                // 문제에서 주어진 포트를 배열로 선언
+                var fontArray = ['Verdana', '굴림체', '휴먼옛체', '궁서', 'Impact'];
+                // 정수를 5로 나누면 나머지는 0~4까지 생성된다. 배열의 인덱스와 일치함.
+                var idx = fontToggle % 5;
+                // 스타일 지정
+                pTag.style.fontFamily = fontToggle[idx];
+                // 함수를 호출할때마다 전역변수 증가
+                fontToggle++;
+            }    
+        </script>
+    </head>
+    <body>
+        <h2>자바스크립트로 CSS제어하기</h2>
+        <input type="button" value="글꼴바꾸기" onclick="setFont();">
+        <fieldset>
+            <legend>신문기사</legend>
+            <button onclick="fnArticle('+');">+</button>
+            <button onclick="fnArticle('-');">-</button>
+            <button onclick="fnArticle('R');">Red</button>
+            <button onclick="fnArticle('G');">Green</button>
+            <button onclick="fnArticle('B');">Blue</button>
+            <button onclick="fnArticle('');">Black</button>
+            <button onclick="fnArticle('Bo');">볼드체</button>
+            <button onclick="fnArticle('No');">보통체</button>
+            <button onclick="fnArticle('Ce');">가운데정렬</button>
+            <button onclick="fnArticle('Le');">좌측정렬</button>
+            <button onclick="fnArticle('B_red');">배경색(red)</button>
+            <button onclick="fnArticle('B_silver');">배경색(silver)</button>
+            <button onclick="fnArticle('B_white');">배경색(white)</button>
+        </fieldset>
+        <p style="font-size: 12px;" id="article">
+            오늘의 뉴스<br>
+            다달이 치솟고 있는 대출 금리를 마주한 서민들이 청와대 국민 청원 란에 몰려가 눈물 어린 호소를 하고 있다.
+
+            지난 1일부터 보름 간 가계대출과 관련(‘대출’을 키워드로 검색한 뒤 선별)한 국민청원은 총 6건이다.
+
+            한 청원인은 지난 1일 ‘잔금 대출 이자의 터무니 없는 상승을 막아주세요’라는 제목의 글을 올렸다. 글쓴이는 “2019년 6월 이율 2%대로 중도금 대출을 받았는데 최근 중도금 상환 및 잔금 대출을 하려니 이율이 4%라고 한다”면서 “지금이 그때보다 기준금리(코픽스·주택담보대출 변동금리의 지표금리)가 낮은데 도저히 이해가 가지 않는다”고 따져 물었다.
+            <br>
+            다른 청원인이 지난 5일 ‘가계대출 관리를 명목으로 진행되는 은행의 가산금리 폭리를 막아주세요’고 요구하자 16일 오전 10시 기준 1만 4,492명이 동의했다. “은행들이 ‘대출의 희소성’을 무기로 가산금리를 높이고 우대금리를 없애면서 폭리를 취하고 있다”는 게 주된 내용이다.
+
+            KB국민·신한·하나·우리은행 등 4대 시중은행의 지난 12일 기준 주택담보대출 변동금리(신규 취급액 기준 코픽스 연동)는 연 3.31∼4.839%로 상단과 하단이 모두 5개월여 사이에 1%포인트 가까이 올랐다.
+            <br>
+            출처 : https://www.sedaily.com/NewsView/22U1ER8M29?OutLink=nstand
+        </p>
+    </body>
+</html>

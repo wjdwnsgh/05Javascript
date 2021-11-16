@@ -134,9 +134,15 @@
             업했을때 이미지크기롤 원래대로 돌린다.[mouseupFunc()]
         -->
         <script>
-            function mouseoverFunc(this) {
-                var srci = document.images[this].src = "./images/2.jpg";
+            function mouseoverFunc(obj) {
+                obj.src = "./images/2.jpg";
                 
+            }
+
+            function mouseoutFunc() {
+                var img = document.getElementsByTagName("img");
+
+                img[0]
             }
         </script>
         <h3>이미지에 마우스 이벤트 적용하기</h3>
