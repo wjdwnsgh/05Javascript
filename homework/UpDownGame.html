@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UpDownGame.html</title>
+        <style>
+            input {
+                width: 50px;
+            }
+        </style>
+        <script>
+            // 전역변수 선언
+            var com; // 랜덤 숫자
+            var count = 0; // 도전 횟수
+            // 컴퓨터가 만든 랜덤숫자 확인용
+            window.onload = function() {
+                com = Math.floor(Math.random()*100+1);
+                alert(com);
+            }
+
+            function upDown() {
+               var inp = frm.num.value;
+               var img = frm.image;
+               
+
+               if(inp == "") {
+                   alert("숫자를 입력해주세요");
+                   img.src = "/images/error.jpg";
+               }
+               else if(isNaN(inp) == true) {
+                   alert("문자 입력하면 안됩니다.");
+                   img.src = "/images/error.jpg";
+               }
+               else {
+                    if(inp < 0 || inp > 100) {
+                    alert("1~100사이의 숫자만 입력하세요");
+                    count++;
+                    }
+                    else {
+                        if(inp < com) {
+                            alert("up!");
+                            img.src = "/images/up.jpg";
+                            count++;
+                        }
+                        else if(inp > com) {
+                            alert("down!");
+                            img.src = "/images/down.jpg";
+                            count++;
+                        }
+
+                        if(inp == com) {
+                            alert("정답입니다!");
+                            img.src = "/images/answer.jpeg";
+                            // display 태그도 되긴하는데 자꾸 줄바꿈이 되는게 마음에 안들어서 바꿈
+                            frm.hidd.style.visibility = "visible";
+
+                        }
+
+                        if(count > 7) {
+                            alert("시도횟수가 초과하였습니다. 게임을 재시작 합니다.");
+                            location.reload();
+                        }
+                    }
+                    
+                    document.getElementById("spa").innerHTML = count;
+                }
+                
+            }
+        </script>
+    </head>
+    <body>
+        <h1>업다운게임</h1>
+
+        <h2>1~100사이의 숫자를 입력하세요</h2>
+        <br>
+
+        <h2>시도횟수 : <span id="spa">0</span>회</h2>
+
+        <form name="frm">
+            숫자입력 : <input type="text" name="num">
+            <button type="button" onclick="upDown();">확인</button>
+            <button type="button" onclick="location.reload();" name="hidd" style="visibility: hidden;">새로고침</button>
+            <br><br>
+
+            <img src="/images/updowngame.jpg" name="image" style="width: 200px; height: 250px;">
+        </form>
+    </body>
+</html>
