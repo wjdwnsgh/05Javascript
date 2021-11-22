@@ -36,7 +36,7 @@
                else {
                     if(inp < 0 || inp > 100) {
                     alert("1~100사이의 숫자만 입력하세요");
-                    count++;
+                    img.src = "/images/error.jpg";
                     }
                     else {
                         if(inp < com) {
@@ -54,6 +54,7 @@
                             alert("정답입니다!");
                             img.src = "/images/answer.jpeg";
                             // display 태그도 되긴하는데 자꾸 줄바꿈이 되는게 마음에 안들어서 바꿈
+                            // inline 태그면 해결
                             frm.hidd.style.visibility = "visible";
 
                         }
